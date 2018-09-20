@@ -15,12 +15,12 @@ import br.com.funcionario.service.FuncionarioService;
 public class FuncionarioController {
 
 	@Autowired
-	FuncionarioRepository er;
+	FuncionarioService service;
 	
 	@GetMapping()
 	public ModelAndView listFuncionarios(){
 		ModelAndView mv = new ModelAndView("listFuncionarios");
-		Iterable <Funciomario> funcionarios = er.findAll();
+		Iterable <Funciomario> funcionarios = service.list();
 		mv.addObject(funcionarios);
 		return mv;
 	}
